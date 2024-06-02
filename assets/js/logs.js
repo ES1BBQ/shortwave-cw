@@ -82,7 +82,7 @@ export const updatePage = function () {
 
     /** Update my callsign value */
     for (let i = 0; i < localStorage['PCall'].length; i++) {
-        loc = loc.concat((i === 0) ? '' : ' ', (localStorage['finnish_fonetics'] === 1) ? ch2faff(localStorage['PCall'].toLowerCase().charAt(i)) : ch2nato(localStorage['PCall'].toLowerCase().charAt(i)) )
+        loc = loc.concat((i === 0) ? '' : ' ', (localStorage['finnish_fonetics'] == 1) ? ch2faff(localStorage['PCall'].toLowerCase().charAt(i)) : ch2nato(localStorage['PCall'].toLowerCase().charAt(i)) )
     }
     document.getElementById('my_callsign').innerHTML = localStorage['PCall'].toUpperCase();
     document.getElementById('my_callsign_fonetic').innerHTML = loc;
@@ -127,7 +127,7 @@ const addLog = function () {
         document.getElementById('qso_rx_number').value.length > 0 &&
         document.getElementById('qso_rx_rst').value.length > 0
     ) {
-        if (document.getElementById('qso_edit').value !== 0) {
+        if (document.getElementById('qso_edit').value != 0) {
             let e = document.getElementById('qso_edit').value;
             QSORecords[e-1] = [
                 'CW',
