@@ -82,7 +82,7 @@ export const updatePage = function () {
 
     /** Update my callsign value */
     for (let i = 0; i < localStorage['PCall'].length; i++) {
-        loc = loc.concat((i === 0) ? '' : ' ', (localStorage['finnish_fonetics'] == 1) ? ch2faff(localStorage['PCall'].toLowerCase().charAt(i)) : ch2nato(localStorage['PCall'].toLowerCase().charAt(i)) )
+        loc = loc.concat((i === 0) ? '' : ' ', (localStorage['finnish_fonetics'] === 1) ? ch2faff(localStorage['PCall'].toLowerCase().charAt(i)) : ch2nato(localStorage['PCall'].toLowerCase().charAt(i)) )
     }
     document.getElementById('my_callsign').innerHTML = localStorage['PCall'].toUpperCase();
     document.getElementById('my_callsign_fonetic').innerHTML = loc;

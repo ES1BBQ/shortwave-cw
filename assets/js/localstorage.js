@@ -24,7 +24,7 @@ const selectSaveAndRestore = function (e) {
     }
 };
 const checkboxSaveAndRestore = function (e) {
-    if (localStorage[e.id] && (localStorage[e.id] == 1)) e.checked = true;
+    if (localStorage[e.id] && (localStorage[e.id] === 1)) e.checked = true;
     e.addEventListener('change', function () {
         if(e.checked){
             localStorage[e.id] = 1;
