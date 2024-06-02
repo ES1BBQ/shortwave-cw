@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="et">
+<head>
+
+    <meta charset="utf-8">
+    <title>ES LL Käsivõtme logirakendus 2024 - ES1BBQ</title>
+    <meta content="Generate logs for ES CW Competition" name="description" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+
+    <meta content="Generate logs for ES CW Competition" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="https://es1bbq.gitlab.io/shortwave-fd/" property="og:url" />
+    <meta content="" property="og:image" />
+
+    <meta content='telephone=no' name='format-detection' />
+    <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="application">
+    <header>
+        <h1>ES LL Käsivõtme logirakendus 2024</h1>
+        Infoks: Rakendus salvestab andmed ainult kohaliku veebilehitsejasse.
+    </header>
+
+    <div class="tabs-container">
+        <ul class="tabs-header">
+            <li>Seadistused</li>
+            <li class="default-tab">Logi</li>
+            <li>Tulem</li>
+            <li>Abi</li>
+            <li>Muutelogi</li>
+        </ul>
+        <div class="tabs">
+            <div class="container tab" id="settings">
+                <div class="centered">
+                    <label for="TDate">Kuupäev:</label>
+                    <input id="TDate" type="date" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="centered">
+                    <label for="Contest">Võistlus:</label>
+                    <input id="Contest" type="text" placeholder="ES-ShortWave-Fieldday">
+                </div>
+                <hr>
+                <div class="centered">
+                    <label for="PCall">Kutsung:</label>
+                    <input id="PCall" style="text-transform:uppercase" type="text">
+                </div>
+                <div class="centered">
+                    <label for="RName">Nimi:</label>
+                    <input id="RName" type="text">
+                </div>
+                <div class="centered">
+                    <label for="PWWLo">Lokaator:
+                        <button id="locate_me">&#8982;</button>
+                    </label>
+                    <input id="PWWLo" style="text-transform:uppercase" type="text">
+                </div>
+                <div class="centered">
+                    <label for="Coefficient">Kordaja (Piirkond):</label>
+                    <select id="Coefficient">
+                        <option value="HM">Hiiumaa</option>
+                        <option value="HR">Harju</option>
+                        <option value="IV">Ida-Viru</option>
+                        <option value="JG">Jõgeva</option>
+                        <option value="JR">Järva</option>
+                        <option value="LN">Lääne</option>
+                        <option value="LV">Lääne-Viru</option>
+                        <option value="PL">Põlva</option>
+                        <option value="PU">Pärnu</option>
+                        <option value="RP">Rapla</option>
+                        <option value="SR">Saaremaa</option>
+                        <option value="TA">Tartu</option>
+                        <option value="TL">Tallinn</option>
+                        <option value="VC">Valga</option>
+                        <option value="VO">Võru</option>
+                        <option value="VP">Viljandi</option>
+                    </select>
+                </div>
+                <div class="centered">
+                    <label for="Address">Aadress:</label>
+                    <input id="Address" type="text">
+                </div>
+                <div class="centered">
+                    <label for="Email">E-post:</label>
+                    <input id="Email" type="email">
+                </div>
+            </div>
+            <div class="container tab" id="edi_log">
+                <div class="centered">
+                    <div class="my_info">
+                        <div class="framed">
+                            Minu Kutsung:
+                            <div id="my_callsign"></div>
+                            <div id="my_callsign_fonetic"></div>
+                        </div>
+                        <div class="framed">
+                            Järgmine number:
+                            <div id="my_next_number"></div>
+                        </div>
+                        <div class="framed">
+                            Kordaja:
+                            <div id="my_coefficient"></div>
+                            <div id="my_coefficient_fonetic"></div>
+                        </div>
+                    </div>
+                    <div class="padded">
+                        <button id="log_reset">Puhasta logi</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="centered" id="log_entry">
+                    <div><label>Jrk.</label></div>
+                    <div><label for="qso_time">Aeg</label></div>
+                    <div><label for="qso_rx_callsign">Kutsung</label></div>
+                    <div><label for="qso_rx_number">Number</label></div>
+                    <div><label for="qso_rx_coefficient">Kordaja</label></div>
+                    <div><label for="qso_mode">Režiim</label></div>
+                    <div><label for="qso_tx_rst">Saadetud</label></div>
+                    <div><label for="qso_rx_rst">Saadud</label></div>
+                    <div></div>
+                    <div>
+                        <input id="qso_edit" type="hidden" value="0">
+                        <input id="qso_tx_number" type="hidden">
+                    </div>
+                    <div><input class="short" id="qso_time" type="text"></div>
+                    <div><input autofocus class="short" id="qso_rx_callsign" maxlength="10" style="text-transform:uppercase" type="text"></div>
+                    <div><input class="short" id="qso_rx_number" maxlength="3" style="text-transform:uppercase" type="text"></div>
+                    <div><input class="short" id="qso_rx_coefficient" maxlength="2" style="text-transform:uppercase" type="text">
+                    </div>
+                    <div>
+                        <select id="qso_mode" class="short">
+                            <option value="PH">SSB</option>
+                            <option value="CW">CW</option>
+                        </select></div>
+                    <div><input class="short" id="qso_tx_rst" maxlength="3" placeholder="599" type="text" value="599"></div>
+                    <div><input class="short" id="qso_rx_rst" maxlength="3" placeholder="599" type="text" value="599"></div>
+                    <div>
+                        <button class="short" id="qso_write">&raquo;</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="centered" id="log"></div>
+            </div>
+            <div class="container tab" id="final_logs">
+                <label for="finalEDI" style="display:none">EDI</label>
+                <div class="centered" style="display:none">
+                    <textarea name="logifail" id="finalEDI"></textarea>
+                </div>
+
+                <label for="log_cabrillo" style="display:none">Cabrillo</label>
+                <div class="centered">
+                    <textarea name="log_cabrillo" id="log_cabrillo"></textarea>
+                </div>
+                <div class="centered">
+                    <a href="#" id="downloadCabrillo" class="button">Lae alla logi.txt</a>
+                </div>
+            </div>
+            <div class="container tab" id="help">
+
+                <h2>Logi sisestus</h2>
+                <p>
+                    <u>Kõik väljad on vajalikud!</u>
+                    Logi sisestamisel täidetakse tühi aja väli automaatselt lokaalse ajaga. Sama kehtib välja
+                    valides tab või enter klahvi vajutades. RST väljadele sisestatakse vaikeväärtus 599 kui väljad on
+                    täitamata tab või enter klahvi vajutades.
+                </p>
+                <p>
+                    Sisestatud logiread kuvavad paremal pool rohelist ja punast nuppu.
+                    <b>Roheline</b> nupp on logikirje muutmiseks, <b>punane</b> nupp on logikirje kustutamiseks.
+                </p>
+                <p>
+                    <b>Kutsungit</b> ja <b>Lokaatorit</b> <u>pole vaja</u> sisestada suurte tähtedega,
+                    seda tehakse automaatselt.
+                </p>
+                <hr>
+                <h2>Seadistused</h2>
+                <p>
+                    Seadistusjaotuses on vajalik kõikide väljade täitmine v.a e-post. Osad veebilehitsejad sisaldavad
+                    kuupäeva valiku võimalust. Kuupäeva valikuta kasutajatele kuvatakse sobiv kuupäeva formaat.
+                    <br><br>
+                    <b>Kutsungit</b> ja <b>Lokaatorit</b> <u>pole vaja</u> sisestada suurte tähtedega,
+                    seda tehakse automaatselt.
+                </p>
+            </div>
+            <div class="container tab" id="changelog">
+                <h2>v2024.05.31.001</h2>
+                <p>
+                    LL Välipäeva rakenduse esimene versioon.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div>
+        <div>
+            <label for="finnish_fonetics">Soome foneetika:</label>
+            <label class="switch">
+                <input type="checkbox" id="finnish_fonetics">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div>
+
+        </div>
+    </div>
+    &copy; 2024 ES1BBQ | v2024.05.31.001
+</footer>
+
+<script src="assets/js/main.js" type="module"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2E3QSH5H1Y"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2E3QSH5H1Y');
+</script>
+
+</body>
+</html>
