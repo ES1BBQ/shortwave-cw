@@ -304,14 +304,14 @@ input:checked + .slider:before {
     font-size: 1em;
 }
 
-#my_callsign, #my_locator, #my_coefficient, #my_next_number {
+#my_callsign, #my_locator, #my_points, #my_next_number {
     font-size: 2em;
     font-weight: bolder;
     line-height: 1.4em;
     color: var(--main-colorschema-fg);
 }
 
-#my_callsign_fonetic, #my_locator_fonetic, #my_coefficient_fonetic {
+#my_callsign_fonetic {
     font-size: 0.7em;
     font-weight: bold;
     background-color: var(--main-colorschema-wrapper-frames);
@@ -328,7 +328,7 @@ input:checked + .slider:before {
 
 #log_entry div, #log .logRow div {
     display: table-cell;
-    width: 11%;
+    width: 14%;
 }
 
 #log_entry input {

@@ -40,7 +40,7 @@
                 </div>
                 <div class="centered">
                     <label for="Contest">Võistlus:</label>
-                    <input id="Contest" type="text" placeholder="ES-ShortWave-Fieldday">
+                    <input id="Contest" type="text" placeholder="ES-ShortWave-CW">
                 </div>
                 <hr>
                 <div class="centered">
@@ -58,25 +58,12 @@
                     <input id="PWWLo" style="text-transform:uppercase" type="text">
                 </div>
                 <div class="centered">
-                    <label for="Coefficient">Kordaja (Piirkond):</label>
-                    <select id="Coefficient">
-                        <option value="HM">Hiiumaa</option>
-                        <option value="HR">Harju</option>
-                        <option value="IV">Ida-Viru</option>
-                        <option value="JG">Jõgeva</option>
-                        <option value="JR">Järva</option>
-                        <option value="LN">Lääne</option>
-                        <option value="LV">Lääne-Viru</option>
-                        <option value="PL">Põlva</option>
-                        <option value="PU">Pärnu</option>
-                        <option value="RP">Rapla</option>
-                        <option value="SR">Saaremaa</option>
-                        <option value="TA">Tartu</option>
-                        <option value="TL">Tallinn</option>
-                        <option value="VC">Valga</option>
-                        <option value="VO">Võru</option>
-                        <option value="VP">Viljandi</option>
-                    </select>
+                    <label for="Tenure">Staaž:</label>
+                    <input id="Tenure" type="text">
+                </div>
+                <div class="centered">
+                    <label for="Age">Vanus:</label>
+                    <input id="Age" type="text">
                 </div>
                 <div class="centered">
                     <label for="Address">Aadress:</label>
@@ -96,13 +83,12 @@
                             <div id="my_callsign_fonetic"></div>
                         </div>
                         <div class="framed">
-                            Järgmine number:
+                            Staaž, vanus, järjekorra number:
                             <div id="my_next_number"></div>
                         </div>
                         <div class="framed">
-                            Kordaja:
-                            <div id="my_coefficient"></div>
-                            <div id="my_coefficient_fonetic"></div>
+                            Minu punktid:
+                            <div id="my_points"></div>
                         </div>
                     </div>
                     <div class="padded">
@@ -115,8 +101,6 @@
                     <div><label for="qso_time">Aeg</label></div>
                     <div><label for="qso_rx_callsign">Kutsung</label></div>
                     <div><label for="qso_rx_number">Number</label></div>
-                    <div><label for="qso_rx_coefficient">Kordaja</label></div>
-                    <div><label for="qso_mode">Režiim</label></div>
                     <div><label for="qso_tx_rst">Saadetud</label></div>
                     <div><label for="qso_rx_rst">Saadud</label></div>
                     <div></div>
@@ -126,14 +110,7 @@
                     </div>
                     <div><input class="short" id="qso_time" type="text"></div>
                     <div><input autofocus class="short" id="qso_rx_callsign" maxlength="10" style="text-transform:uppercase" type="text"></div>
-                    <div><input class="short" id="qso_rx_number" maxlength="3" style="text-transform:uppercase" type="text"></div>
-                    <div><input class="short" id="qso_rx_coefficient" maxlength="2" style="text-transform:uppercase" type="text">
-                    </div>
-                    <div>
-                        <select id="qso_mode" class="short">
-                            <option value="PH">SSB</option>
-                            <option value="CW">CW</option>
-                        </select></div>
+                    <div><input class="short" id="qso_rx_number" maxlength="6" style="text-transform:uppercase" type="text"></div>
                     <div><input class="short" id="qso_tx_rst" maxlength="3" placeholder="599" type="text" value="599"></div>
                     <div><input class="short" id="qso_rx_rst" maxlength="3" placeholder="599" type="text" value="599"></div>
                     <div>
@@ -144,11 +121,6 @@
                 <div class="centered" id="log"></div>
             </div>
             <div class="container tab" id="final_logs">
-                <label for="finalEDI" style="display:none">EDI</label>
-                <div class="centered" style="display:none">
-                    <textarea name="logifail" id="finalEDI"></textarea>
-                </div>
-
                 <label for="log_cabrillo" style="display:none">Cabrillo</label>
                 <div class="centered">
                     <textarea name="log_cabrillo" id="log_cabrillo"></textarea>
@@ -185,9 +157,9 @@
                 </p>
             </div>
             <div class="container tab" id="changelog">
-                <h2>v2024.05.31.001</h2>
+                <h2>v2024.06.02.001</h2>
                 <p>
-                    LL Välipäeva rakenduse esimene versioon.
+                    LL Käsivõtme rakenduse esimene versioon.
                 </p>
             </div>
         </div>
@@ -207,7 +179,7 @@
 
         </div>
     </div>
-    &copy; 2024 ES1BBQ | v2024.05.31.001
+    &copy; 2024 ES1BBQ | v2024.06.02.001
 </footer>
 
 <script src="assets/js/main.js" type="module"></script>
