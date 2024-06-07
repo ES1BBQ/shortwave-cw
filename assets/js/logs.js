@@ -168,7 +168,7 @@ const addLog = function () {
 }
 
 const next_tx_number = function () {
-    let i = (localStorage['my_next_number']) ? parseInt(localStorage['my_next_number']) : 1;
+    let i = (localStorage['my_next_number']) ? parseInt(localStorage['my_next_number']) : 0;
     return i+1;
 }
 
