@@ -185,8 +185,8 @@ const editLog = function(e) {
     document.getElementById('qso_time').value = d[2].textContent;
     document.getElementById('qso_rx_callsign').value = d[3].textContent;
     document.getElementById('qso_rx_number').value = d[4].textContent;
-    document.getElementById('qso_tx_rst').value = d[6].textContent;
-    document.getElementById('qso_rx_rst').value = d[7].textContent;
+    document.getElementById('qso_tx_rst').value = d[5].textContent;
+    document.getElementById('qso_rx_rst').value = d[6].textContent;
 }
 
 /** Method to clear a log entry */
