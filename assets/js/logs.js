@@ -13,6 +13,7 @@ export const refreshLogsTable = function () {
         row.className = "logRow"
 
         /* check for duplicates */
+        /*
         _qsos.push([j[5],j[1],j[0]]);
         for (let i = 0; i < _qsos.length-1; i++) {
             if (_qsos[i][0] === j[6]) {
@@ -37,6 +38,7 @@ export const refreshLogsTable = function () {
                 }
             }
         }
+         */
 
         /* Add row numbers */
         nr+=1;
@@ -51,6 +53,7 @@ export const refreshLogsTable = function () {
                 cell.innerHTML = leadingZeros(parseInt(j[i]),2)
             } else {
                 cell.innerHTML = j[i];
+            }
             }
             row.appendChild(cell);
         }
