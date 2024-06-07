@@ -38,7 +38,7 @@ export const refreshLogsTable = function () {
                 }
             }
         }
-         */
+        */
 
         /* Add row numbers */
         nr+=1;
@@ -53,7 +53,6 @@ export const refreshLogsTable = function () {
                 cell.innerHTML = leadingZeros(parseInt(j[i]),2)
             } else {
                 cell.innerHTML = j[i];
-            }
             }
             row.appendChild(cell);
         }
