@@ -160,6 +160,8 @@ const addLog = function () {
         document.getElementById('qso_time').value = '';
         document.getElementById('qso_rx_callsign').value = '';
         document.getElementById('qso_rx_number').value = '';
+        document.getElementById('qso_rx_rst').value = '599';
+        document.getElementById('qso_tx_rst').value = '599';
         document.getElementById('qso_rx_callsign').focus();
     }
 
